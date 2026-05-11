@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -57,14 +58,20 @@
     .leaf4{bottom:8%;right:8%;}
 
     @keyframes float{
-      0%,100%{transform:translateY(0px) rotate(0deg);}
-      50%{transform:translateY(-18px) rotate(8deg);}
+      0%,100%{
+        transform:translateY(0px) rotate(0deg);
+      }
+      50%{
+        transform:translateY(-18px) rotate(8deg);
+      }
     }
 
     .container{
       max-width:900px;
       margin:auto;
       padding:30px 20px 80px;
+      position:relative;
+      z-index:2;
     }
 
     .hero{
@@ -267,6 +274,41 @@
       padding-bottom:30px;
     }
 
+    /* FLOWER FALL EFFECT */
+
+    .flower-fall{
+      position:fixed;
+      top:-10%;
+      z-index:1;
+      pointer-events:none;
+      animation-name:flowerFall;
+      animation-timing-function:linear;
+      animation-iteration-count:infinite;
+      opacity:0.75;
+      filter:drop-shadow(0 4px 6px rgba(0,0,0,0.08));
+    }
+
+    @keyframes flowerFall{
+
+      0%{
+        transform:translateY(-10vh) translateX(0px) rotate(0deg);
+        opacity:0;
+      }
+
+      10%{
+        opacity:0.8;
+      }
+
+      50%{
+        transform:translateY(50vh) translateX(30px) rotate(180deg);
+      }
+
+      100%{
+        transform:translateY(110vh) translateX(-40px) rotate(360deg);
+        opacity:0;
+      }
+    }
+
     @media(max-width:768px){
 
       h1{
@@ -285,6 +327,7 @@
         padding:55px 20px;
       }
     }
+
   </style>
 </head>
 
@@ -311,7 +354,10 @@
       </p>
 
       <div class="button-group">
-        <a href="#details" class="btn btn-primary">View Details</a>
+
+        <a href="#details" class="btn btn-primary">
+          View Details
+        </a>
 
         <a
           href="https://www.google.com/maps/place/St.+Peter's+Auditorium/@9.8812529,76.2849131,17z/data=!3m1!4b1!4m6!3m5!1s0x3b0871f6b110d16f:0xb93a6e46c7601335!8m2!3d9.8812529!4d76.287488!16s%2Fg%2F1263jc0t5?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
@@ -320,6 +366,7 @@
         >
           Open Google Map
         </a>
+
       </div>
 
     </section>
@@ -341,21 +388,30 @@
       </div>
 
       <div class="details">
+
         A graceful celebration of love, faith, family,
         and the promise of a beautiful journey ahead.
+
         <br><br>
 
         <strong>Saturday, June 13, 2026</strong>
+
         <br>
+
         11:00 AM onwards
+
         <br><br>
 
         <strong>Venue</strong>
+
         <br>
+
         St Peter's Parish Hall, Kumbalangi
+
       </div>
 
       <div class="button-group" style="margin-top:30px;">
+
         <a
           href="https://www.google.com/maps/place/St.+Peter's+Auditorium/@9.8812529,76.2849131,17z/data=!3m1!4b1!4m6!3m5!1s0x3b0871f6b110d16f:0xb93a6e46c7601335!8m2!3d9.8812529!4d76.287488!16s%2Fg%2F1263jc0t5?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
@@ -363,6 +419,7 @@
         >
           Open Venue Location
         </a>
+
       </div>
 
     </section>
@@ -455,6 +512,9 @@
   </div>
 
   <script>
+
+    // COUNTDOWN
+
     const targetDate = new Date("June 13, 2026 11:00:00").getTime();
 
     const countdown = setInterval(() => {
@@ -477,6 +537,47 @@
       }
 
     },1000);
+
+
+    // FLOWER FALL EFFECT
+
+    const flowerSymbols = ["❀","✿","❋","🌿"];
+
+    function createFlower(){
+
+      const flower = document.createElement("div");
+
+      flower.classList.add("flower-fall");
+
+      flower.innerHTML =
+        flowerSymbols[Math.floor(Math.random() * flowerSymbols.length)];
+
+      flower.style.left =
+        Math.random() * window.innerWidth + "px";
+
+      flower.style.fontSize =
+        (18 + Math.random() * 28) + "px";
+
+      flower.style.animationDuration =
+        (8 + Math.random() * 8) + "s";
+
+      flower.style.color = [
+        "#7ca57f",
+        "#8db58f",
+        "#9ac59d",
+        "#6f9a73",
+        "#aacdaa"
+      ][Math.floor(Math.random() * 5)];
+
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 16000);
+    }
+
+    setInterval(createFlower, 450);
+
   </script>
 
 </body>
