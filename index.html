@@ -170,20 +170,30 @@
     }
 
     .left-curtain{
-      animation:openLeft 4s ease forwards;
+      transform:translateX(0);
     }
 
     .right-curtain{
+      transform:translateX(0);
+    }
+
+    .open-curtain .left-curtain{
+      animation:openLeft 4s ease forwards;
+    }
+
+    .open-curtain .right-curtain{
       animation:openRight 4s ease forwards;
     }
 
     @keyframes openLeft{
+
       100%{
         transform:translateX(-100%);
       }
     }
 
     @keyframes openRight{
+
       100%{
         transform:translateX(100%);
       }
@@ -206,7 +216,7 @@
       left:30px;
     }
 
-    /* FLOATING FLOWERS */
+    /* FLOWER FALL */
 
     .flower-fall{
       position:fixed;
@@ -262,7 +272,7 @@
       }
     }
 
-    /* MAIN CONTENT */
+    /* MAIN */
 
     .container{
       max-width:900px;
@@ -533,7 +543,7 @@
 
   <!-- CURTAINS -->
 
-  <div class="curtain-container">
+  <div class="curtain-container" id="curtainContainer">
 
     <div class="curtain left-curtain">
       <div class="curtain-rope rope-left"></div>
@@ -708,13 +718,16 @@
 
   <script>
 
-    // MUSIC + ENTER
+    // MUSIC + CURTAIN OPEN
 
     const enterBtn =
       document.getElementById("enterBtn");
 
     const enterScreen =
       document.getElementById("enterScreen");
+
+    const curtainContainer =
+      document.getElementById("curtainContainer");
 
     const music =
       document.getElementById("bgMusic");
@@ -724,6 +737,8 @@
     enterBtn.addEventListener("click", () => {
 
       music.play();
+
+      curtainContainer.classList.add("open-curtain");
 
       enterScreen.style.opacity = "0";
       enterScreen.style.pointerEvents = "none";
