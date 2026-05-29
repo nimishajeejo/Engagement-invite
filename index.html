@@ -27,8 +27,6 @@
       position:relative;
     }
 
-    /* BACKGROUND GLOW */
-
     body::before{
       content:"";
       position:fixed;
@@ -51,7 +49,7 @@
       z-index:-2;
     }
 
-    /* CURTAIN EFFECT */
+    /* CURTAIN */
 
     .curtain-container{
       position:fixed;
@@ -74,7 +72,6 @@
           #5f8766 80%,
           #4f7a58 100%
         );
-
       position:relative;
       overflow:hidden;
     }
@@ -103,20 +100,12 @@
     }
 
     @keyframes openLeft{
-      0%{
-        transform:translateX(0);
-      }
-
       100%{
         transform:translateX(-100%);
       }
     }
 
     @keyframes openRight{
-      0%{
-        transform:translateX(0);
-      }
-
       100%{
         transform:translateX(100%);
       }
@@ -129,7 +118,6 @@
       background:#d8c07a;
       top:80px;
       border-radius:20px;
-      box-shadow:0 0 10px rgba(255,215,140,0.4);
     }
 
     .rope-left{
@@ -140,7 +128,7 @@
       left:30px;
     }
 
-    /* FLOATING FLORALS */
+    /* FLOATING LEAVES */
 
     .floating-leaf{
       position:absolute;
@@ -156,16 +144,12 @@
     .leaf4{bottom:8%;right:8%;}
 
     @keyframes float{
-      0%,100%{
-        transform:translateY(0px) rotate(0deg);
-      }
-
       50%{
         transform:translateY(-18px) rotate(8deg);
       }
     }
 
-    /* MAIN CONTENT */
+    /* MAIN */
 
     .container{
       max-width:900px;
@@ -186,26 +170,6 @@
       overflow:hidden;
     }
 
-    .hero::before{
-      content:"";
-      position:absolute;
-      width:250px;
-      height:250px;
-      background:radial-gradient(circle, rgba(171,214,171,0.4), transparent 70%);
-      top:-80px;
-      right:-80px;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      width:220px;
-      height:220px;
-      background:radial-gradient(circle, rgba(191,227,191,0.35), transparent 70%);
-      bottom:-90px;
-      left:-90px;
-    }
-
     .emblem{
       font-size:58px;
       margin-bottom:15px;
@@ -213,10 +177,6 @@
     }
 
     @keyframes pulse{
-      0%,100%{
-        transform:scale(1);
-      }
-
       50%{
         transform:scale(1.08);
       }
@@ -247,8 +207,6 @@
       color:#516556;
     }
 
-    /* BUTTONS */
-
     .button-group{
       margin-top:35px;
       display:flex;
@@ -274,7 +232,7 @@
     }
 
     .btn-primary:hover{
-      transform:translateY(-4px) scale(1.03);
+      transform:translateY(-4px);
       background:#6b916d;
     }
 
@@ -289,8 +247,6 @@
       transform:translateY(-4px);
     }
 
-    /* SECTIONS */
-
     .section{
       margin-top:45px;
       background:rgba(255,255,255,0.72);
@@ -301,16 +257,6 @@
       text-align:center;
       position:relative;
       overflow:hidden;
-    }
-
-    .section::before{
-      content:"❀";
-      position:absolute;
-      font-size:140px;
-      opacity:0.04;
-      top:-20px;
-      right:20px;
-      color:#6f9a73;
     }
 
     .section h2{
@@ -343,8 +289,6 @@
       font-size:16px;
     }
 
-    /* COUNTDOWN */
-
     .countdown{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
@@ -356,17 +300,11 @@
       background:#eef7ee;
       border-radius:22px;
       padding:25px 10px;
-      transition:0.3s ease;
-    }
-
-    .count-box:hover{
-      transform:translateY(-5px);
     }
 
     .count-box h3{
       font-size:42px;
       color:#2e4a35;
-      margin-bottom:5px;
     }
 
     .count-box p{
@@ -375,8 +313,6 @@
       letter-spacing:1px;
       text-transform:uppercase;
     }
-
-    /* SCHEDULE */
 
     .schedule{
       margin-top:30px;
@@ -411,7 +347,7 @@
       padding-bottom:30px;
     }
 
-    /* FLOWER FALL */
+    /* FLOWERS */
 
     .flower-fall{
       position:fixed;
@@ -422,7 +358,6 @@
       animation-timing-function:linear;
       animation-iteration-count:infinite;
       opacity:0.75;
-      filter:drop-shadow(0 4px 6px rgba(0,0,0,0.08));
     }
 
     @keyframes flowerFall{
@@ -445,8 +380,6 @@
         opacity:0;
       }
     }
-
-    /* MOBILE */
 
     @media(max-width:768px){
 
@@ -476,9 +409,9 @@
 
 <body>
 
-  <!-- BACKGROUND MUSIC -->
+  <!-- MUSIC -->
 
-  <audio id="bgMusic" autoplay loop>
+  <audio id="bgMusic" loop playsinline>
     <source src="235901_trimmed.mp3" type="audio/mp3">
   </audio>
 
@@ -496,14 +429,12 @@
 
   </div>
 
-  <!-- FLOATING DECOR -->
+  <!-- FLOATING -->
 
   <div class="floating-leaf leaf1">❀</div>
   <div class="floating-leaf leaf2">❋</div>
   <div class="floating-leaf leaf3">❀</div>
   <div class="floating-leaf leaf4">❋</div>
-
-  <!-- MAIN CONTENT -->
 
   <div class="container">
 
@@ -541,8 +472,6 @@
       </div>
 
     </section>
-
-    <!-- DETAILS -->
 
     <section class="section" id="details">
 
@@ -583,29 +512,11 @@
 
       </div>
 
-      <div class="button-group" style="margin-top:30px;">
-
-        <a
-          href="https://www.google.com/maps/place/St.+Peter's+Auditorium/@9.8812529,76.2849131,17z/data=!3m1!4b1!4m6!3m5!1s0x3b0871f6b110d16f:0xb93a6e46c7601335!8m2!3d9.8812529!4d76.287488!16s%2Fg%2F1263jc0t5?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank"
-          class="btn btn-primary"
-        >
-          Open Venue Location
-        </a>
-
-      </div>
-
     </section>
-
-    <!-- COUNTDOWN -->
 
     <section class="section">
 
       <h2>Counting Down</h2>
-
-      <p class="intro">
-        A gentle little countdown until we celebrate this beautiful moment together.
-      </p>
 
       <div class="countdown">
 
@@ -633,16 +544,9 @@
 
     </section>
 
-    <!-- EVENT DETAILS -->
-
     <section class="section">
 
       <h2>Celebration Details</h2>
-
-      <p class="intro">
-        We would be delighted to have you with us as we celebrate
-        this meaningful and joyful occasion surrounded by loved ones.
-      </p>
 
       <div class="schedule">
 
@@ -660,19 +564,7 @@
           <h4>Following the Ceremony — Reception</h4>
 
           <p>
-            Please stay back and celebrate with us through an afternoon
-            filled with joy, blessings, and togetherness.
-          </p>
-
-        </div>
-
-        <div class="schedule-item">
-
-          <h4>All in One Place</h4>
-
-          <p>
-            The ceremony and reception will both take place at the same venue,
-            making it easy and comfortable for all our guests.
+            Please stay back and celebrate with us.
           </p>
 
         </div>
@@ -697,32 +589,41 @@
 
   <script>
 
-    // AUTOPLAY MUSIC FIX
+    // MUSIC AUTOPLAY
+
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.5;
 
     window.addEventListener("load", () => {
 
-      const music = document.getElementById("bgMusic");
+      const playPromise = music.play();
 
-      music.volume = 0.5;
+      if (playPromise !== undefined) {
 
-      music.play().catch(() => {
+        playPromise.catch(() => {
 
-        const startMusic = () => {
+          const startAudio = () => {
 
-          music.play();
+            music.play();
 
-          document.removeEventListener("click", startMusic);
-          document.removeEventListener("touchstart", startMusic);
-        };
+            document.removeEventListener("click", startAudio);
+            document.removeEventListener("touchstart", startAudio);
+            document.removeEventListener("scroll", startAudio);
 
-        document.addEventListener("click", startMusic);
-        document.addEventListener("touchstart", startMusic);
+          };
 
-      });
+          document.addEventListener("click", startAudio);
+          document.addEventListener("touchstart", startAudio);
+          document.addEventListener("scroll", startAudio);
+
+        });
+
+      }
 
     });
 
-    // COUNTDOWN TIMER
+    // COUNTDOWN
 
     const targetDate =
       new Date("June 13, 2026 11:00:00").getTime();
@@ -736,33 +637,24 @@
       const distance =
         targetDate - now;
 
-      const days =
+      document.getElementById("days").innerHTML =
         Math.floor(distance / (1000 * 60 * 60 * 24));
 
-      const hours =
+      document.getElementById("hours").innerHTML =
         Math.floor((distance % (1000 * 60 * 60 * 24))
         / (1000 * 60 * 60));
 
-      const minutes =
+      document.getElementById("minutes").innerHTML =
         Math.floor((distance % (1000 * 60 * 60))
         / (1000 * 60));
 
-      const seconds =
+      document.getElementById("seconds").innerHTML =
         Math.floor((distance % (1000 * 60))
         / 1000);
 
-      document.getElementById("days").innerHTML = days;
-      document.getElementById("hours").innerHTML = hours;
-      document.getElementById("minutes").innerHTML = minutes;
-      document.getElementById("seconds").innerHTML = seconds;
-
-      if(distance < 0){
-        clearInterval(countdown);
-      }
-
     },1000);
 
-    // FLOWER FALL EFFECT
+    // FLOWERS
 
     const flowerSymbols =
       ["❀","✿","❋","🌿"];
@@ -776,9 +668,7 @@
 
       flower.innerHTML =
         flowerSymbols[
-          Math.floor(
-            Math.random() * flowerSymbols.length
-          )
+          Math.floor(Math.random() * flowerSymbols.length)
         ];
 
       flower.style.left =
