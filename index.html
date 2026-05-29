@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -23,16 +24,58 @@ html{
 body{
   font-family:'Poppins',sans-serif;
   overflow-x:hidden;
+
   background:
   linear-gradient(
     135deg,
-    #f7faf5,
-    #edf7ee,
-    #f8fcf7
+    #f8fcf7,
+    #eef8ee,
+    #f4fbf4
   );
 
   color:#3d4d42;
   position:relative;
+}
+
+/* =========================
+   BACKGROUND GLOW
+========================= */
+
+body::before{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  border-radius:50%;
+  background:
+  radial-gradient(
+    circle,
+    rgba(176,216,176,0.22),
+    transparent 70%
+  );
+
+  top:-250px;
+  left:-250px;
+  z-index:-2;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(176,216,176,0.18),
+    transparent 70%
+  );
+
+  bottom:-250px;
+  right:-250px;
+  z-index:-2;
 }
 
 /* =========================
@@ -58,6 +101,7 @@ body{
   text-align:center;
   z-index:10;
   animation:fadeUp 1.5s ease;
+  padding:20px;
 }
 
 .enter-heart{
@@ -220,7 +264,14 @@ body{
   position:absolute;
   width:12px;
   height:160px;
-  background:linear-gradient(to bottom,#f3d892,#b68b3d);
+
+  background:
+  linear-gradient(
+    to bottom,
+    #f3d892,
+    #b68b3d
+  );
+
   top:70px;
   border-radius:30px;
   box-shadow:0 0 12px rgba(255,223,120,0.4);
@@ -235,35 +286,7 @@ body{
 }
 
 /* =========================
-   BACKGROUND GLOW
-========================= */
-
-body::before{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(176,216,176,0.22),transparent 70%);
-  top:-250px;
-  left:-250px;
-  z-index:-2;
-}
-
-body::after{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(176,216,176,0.18),transparent 70%);
-  bottom:-250px;
-  right:-250px;
-  z-index:-2;
-}
-
-/* =========================
-   FALLING FLOWERS
+   FLOWERS
 ========================= */
 
 .flower{
@@ -339,8 +362,14 @@ body::after{
   width:320px;
   height:320px;
   border-radius:50%;
+
   background:
-  radial-gradient(circle,rgba(157,214,157,0.35),transparent 70%);
+  radial-gradient(
+    circle,
+    rgba(157,214,157,0.35),
+    transparent 70%
+  );
+
   top:-120px;
   right:-100px;
 }
@@ -351,16 +380,16 @@ body::after{
   width:300px;
   height:300px;
   border-radius:50%;
+
   background:
-  radial-gradient(circle,rgba(206,232,206,0.32),transparent 70%);
+  radial-gradient(
+    circle,
+    rgba(206,232,206,0.32),
+    transparent 70%
+  );
+
   bottom:-140px;
   left:-100px;
-}
-
-.badge{
-  font-size:60px;
-  margin-bottom:18px;
-  animation:pulse 3s infinite;
 }
 
 .subtitle{
@@ -371,12 +400,111 @@ body::after{
   margin-bottom:18px;
 }
 
-h1{
+/* =========================
+   BEAUTIFUL NAMES
+========================= */
+
+.name-frame{
+  margin-top:10px;
+  margin-bottom:30px;
+  position:relative;
+  z-index:2;
+}
+
+.couple-name{
+
   font-family:'Cormorant Garamond',serif;
-  font-size:82px;
-  line-height:1;
-  margin-bottom:25px;
-  color:#29412e;
+
+  font-size:96px;
+
+  line-height:1.05;
+
+  font-weight:700;
+
+  background:
+  linear-gradient(
+    135deg,
+    #35503b,
+    #6f9473,
+    #35503b
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+  0 6px 18px rgba(0,0,0,0.08);
+
+  position:relative;
+
+  display:inline-block;
+
+  padding:25px 40px;
+
+  border-radius:28px;
+
+  background-color:rgba(255,255,255,0.55);
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+  0 12px 30px rgba(0,0,0,0.08),
+  inset 0 1px 0 rgba(255,255,255,0.7);
+
+  animation:glowName 4s ease-in-out infinite;
+}
+
+.couple-name span{
+  display:block;
+  font-size:70px;
+  margin:12px 0;
+  color:#7ca57f;
+  -webkit-text-fill-color:#7ca57f;
+}
+
+.floral-line{
+  width:220px;
+  height:2px;
+  margin:18px auto;
+
+  background:
+  linear-gradient(
+    to right,
+    transparent,
+    #9fc39f,
+    #6f9473,
+    #9fc39f,
+    transparent
+  );
+
+  position:relative;
+}
+
+.floral-line::before{
+  content:"❀";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  background:#f5fbf4;
+  padding:0 14px;
+  color:#7ca57f;
+  font-size:22px;
+}
+
+@keyframes glowName{
+
+  0%,100%{
+    transform:translateY(0px);
+    box-shadow:
+    0 12px 30px rgba(0,0,0,0.08);
+  }
+
+  50%{
+    transform:translateY(-4px);
+    box-shadow:
+    0 18px 38px rgba(111,148,115,0.22);
+  }
 }
 
 .intro{
@@ -570,12 +698,17 @@ footer{
 
 @media(max-width:768px){
 
-  h1{
-    font-size:56px;
+  .couple-name{
+    font-size:62px;
+    padding:20px 18px;
   }
 
-  .couple{
+  .couple-name span{
     font-size:48px;
+  }
+
+  .floral-line{
+    width:150px;
   }
 
   .hero{
@@ -652,16 +785,23 @@ footer{
 
   <section class="hero">
 
-    <div class="badge">💍</div>
-
     <div class="subtitle">
       Engagement Invitation
     </div>
 
-    <h1>
-      Caleb <br>
-      & Nimisha
-    </h1>
+    <div class="name-frame">
+
+      <div class="floral-line"></div>
+
+      <h1 class="couple-name">
+        Caleb
+        <span>&</span>
+        Nimisha
+      </h1>
+
+      <div class="floral-line"></div>
+
+    </div>
 
     <p class="intro">
       With grateful hearts and joyful spirits, we warmly invite you to celebrate
@@ -840,9 +980,7 @@ footer{
 
 <script>
 
-/* =========================
-   MUSIC + CURTAIN OPEN
-========================= */
+/* MUSIC + CURTAINS */
 
 const enterBtn =
 document.getElementById("enterBtn");
@@ -875,9 +1013,7 @@ enterBtn.addEventListener("click",()=>{
 
 });
 
-/* =========================
-   COUNTDOWN
-========================= */
+/* COUNTDOWN */
 
 const targetDate =
 new Date("June 13, 2026 10:30:00").getTime();
@@ -904,9 +1040,7 @@ setInterval(()=>{
 
 },1000);
 
-/* =========================
-   FLOWERS
-========================= */
+/* FLOWERS */
 
 const flowers =
 ["❀","✿","❋","🌿","🍃"];
