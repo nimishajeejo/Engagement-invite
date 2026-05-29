@@ -476,6 +476,12 @@
 
 <body>
 
+  <!-- BACKGROUND MUSIC -->
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="235901_trimmed.mp3" type="audio/mp3">
+  </audio>
+
   <!-- CURTAINS -->
 
   <div class="curtain-container">
@@ -690,6 +696,31 @@
   </div>
 
   <script>
+
+    // AUTOPLAY MUSIC FIX
+
+    window.addEventListener("load", () => {
+
+      const music = document.getElementById("bgMusic");
+
+      music.volume = 0.5;
+
+      music.play().catch(() => {
+
+        const startMusic = () => {
+
+          music.play();
+
+          document.removeEventListener("click", startMusic);
+          document.removeEventListener("touchstart", startMusic);
+        };
+
+        document.addEventListener("click", startMusic);
+        document.addEventListener("touchstart", startMusic);
+
+      });
+
+    });
 
     // COUNTDOWN TIMER
 
