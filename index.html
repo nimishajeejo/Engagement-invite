@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Caleb & Nimisha | Engagement</title>
 
@@ -27,6 +27,83 @@
       position:relative;
     }
 
+    /* ENTER SCREEN */
+
+    #enterScreen{
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(
+          135deg,
+          #edf7ed,
+          #dcefdc
+        );
+
+      z-index:100000;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      transition:1s ease;
+    }
+
+    .enter-content{
+      text-align:center;
+      animation:fadeUp 1.5s ease;
+      padding:20px;
+    }
+
+    .enter-heart{
+      font-size:70px;
+      margin-bottom:20px;
+    }
+
+    .enter-content h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:58px;
+      color:#2e4a35;
+      margin-bottom:15px;
+    }
+
+    .enter-content p{
+      color:#5f7664;
+      margin-bottom:30px;
+      letter-spacing:1px;
+    }
+
+    #enterBtn{
+      border:none;
+      padding:15px 40px;
+      border-radius:50px;
+      background:#7ca57f;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s ease;
+      box-shadow:0 10px 20px rgba(124,165,127,0.3);
+    }
+
+    #enterBtn:hover{
+      transform:translateY(-4px);
+      background:#6d9170;
+    }
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0px);
+      }
+    }
+
+    /* BACKGROUND GLOW */
+
     body::before{
       content:"";
       position:fixed;
@@ -49,7 +126,7 @@
       z-index:-2;
     }
 
-    /* CURTAIN */
+    /* CURTAINS */
 
     .curtain-container{
       position:fixed;
@@ -72,6 +149,7 @@
           #5f8766 80%,
           #4f7a58 100%
         );
+
       position:relative;
       overflow:hidden;
     }
@@ -128,7 +206,41 @@
       left:30px;
     }
 
-    /* FLOATING LEAVES */
+    /* FLOATING FLOWERS */
+
+    .flower-fall{
+      position:fixed;
+      top:-10%;
+      z-index:9999;
+      pointer-events:none;
+      animation-name:flowerFall;
+      animation-timing-function:linear;
+      animation-iteration-count:infinite;
+      opacity:0.9;
+    }
+
+    @keyframes flowerFall{
+
+      0%{
+        transform:translateY(-10vh) translateX(0px) rotate(0deg);
+        opacity:0;
+      }
+
+      10%{
+        opacity:0.8;
+      }
+
+      50%{
+        transform:translateY(50vh) translateX(30px) rotate(180deg);
+      }
+
+      100%{
+        transform:translateY(110vh) translateX(-40px) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    /* FLOATING DECOR */
 
     .floating-leaf{
       position:absolute;
@@ -144,12 +256,13 @@
     .leaf4{bottom:8%;right:8%;}
 
     @keyframes float{
+
       50%{
         transform:translateY(-18px) rotate(8deg);
       }
     }
 
-    /* MAIN */
+    /* MAIN CONTENT */
 
     .container{
       max-width:900px;
@@ -177,6 +290,7 @@
     }
 
     @keyframes pulse{
+
       50%{
         transform:scale(1.08);
       }
@@ -206,6 +320,8 @@
       font-size:16px;
       color:#516556;
     }
+
+    /* BUTTONS */
 
     .button-group{
       margin-top:35px;
@@ -246,6 +362,8 @@
       background:#eef7ee;
       transform:translateY(-4px);
     }
+
+    /* SECTIONS */
 
     .section{
       margin-top:45px;
@@ -289,6 +407,8 @@
       font-size:16px;
     }
 
+    /* COUNTDOWN */
+
     .countdown{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
@@ -313,6 +433,8 @@
       letter-spacing:1px;
       text-transform:uppercase;
     }
+
+    /* SCHEDULE */
 
     .schedule{
       margin-top:30px;
@@ -347,39 +469,7 @@
       padding-bottom:30px;
     }
 
-    /* FLOWERS */
-
-    .flower-fall{
-      position:fixed;
-      top:-10%;
-      z-index:1;
-      pointer-events:none;
-      animation-name:flowerFall;
-      animation-timing-function:linear;
-      animation-iteration-count:infinite;
-      opacity:0.75;
-    }
-
-    @keyframes flowerFall{
-
-      0%{
-        transform:translateY(-10vh) translateX(0px) rotate(0deg);
-        opacity:0;
-      }
-
-      10%{
-        opacity:0.8;
-      }
-
-      50%{
-        transform:translateY(50vh) translateX(30px) rotate(180deg);
-      }
-
-      100%{
-        transform:translateY(110vh) translateX(-40px) rotate(360deg);
-        opacity:0;
-      }
-    }
+    /* MOBILE */
 
     @media(max-width:768px){
 
@@ -402,6 +492,10 @@
       .quote{
         font-size:26px;
       }
+
+      .enter-content h2{
+        font-size:42px;
+      }
     }
 
   </style>
@@ -409,9 +503,31 @@
 
 <body>
 
+  <!-- ENTER SCREEN -->
+
+  <div id="enterScreen">
+
+    <div class="enter-content">
+
+      <div class="enter-heart">💚</div>
+
+      <h2>Caleb & Nimisha</h2>
+
+      <p>
+        Tap to open invitation
+      </p>
+
+      <button id="enterBtn">
+        Enter
+      </button>
+
+    </div>
+
+  </div>
+
   <!-- MUSIC -->
 
-  <audio id="bgMusic" loop playsinline>
+  <audio id="bgMusic" loop>
     <source src="235901_trimmed.mp3" type="audio/mp3">
   </audio>
 
@@ -429,12 +545,14 @@
 
   </div>
 
-  <!-- FLOATING -->
+  <!-- FLOATING DECOR -->
 
   <div class="floating-leaf leaf1">❀</div>
   <div class="floating-leaf leaf2">❋</div>
   <div class="floating-leaf leaf3">❀</div>
   <div class="floating-leaf leaf4">❋</div>
+
+  <!-- MAIN CONTENT -->
 
   <div class="container">
 
@@ -564,7 +682,8 @@
           <h4>Following the Ceremony — Reception</h4>
 
           <p>
-            Please stay back and celebrate with us.
+            Please stay back and celebrate with us through an afternoon
+            filled with joy, blessings, and togetherness.
           </p>
 
         </div>
@@ -589,37 +708,31 @@
 
   <script>
 
-    // MUSIC AUTOPLAY
+    // MUSIC + ENTER
 
-    const music = document.getElementById("bgMusic");
+    const enterBtn =
+      document.getElementById("enterBtn");
+
+    const enterScreen =
+      document.getElementById("enterScreen");
+
+    const music =
+      document.getElementById("bgMusic");
 
     music.volume = 0.5;
 
-    window.addEventListener("load", () => {
+    enterBtn.addEventListener("click", () => {
 
-      const playPromise = music.play();
+      music.play();
 
-      if (playPromise !== undefined) {
+      enterScreen.style.opacity = "0";
+      enterScreen.style.pointerEvents = "none";
 
-        playPromise.catch(() => {
+      setTimeout(() => {
 
-          const startAudio = () => {
+        enterScreen.style.display = "none";
 
-            music.play();
-
-            document.removeEventListener("click", startAudio);
-            document.removeEventListener("touchstart", startAudio);
-            document.removeEventListener("scroll", startAudio);
-
-          };
-
-          document.addEventListener("click", startAudio);
-          document.addEventListener("touchstart", startAudio);
-          document.addEventListener("scroll", startAudio);
-
-        });
-
-      }
+      },1000);
 
     });
 
